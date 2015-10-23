@@ -1,11 +1,119 @@
 ---
 layout: default
-title: Laurendo.es
+title: Home
 ---
+<div class="wrapper-home">
+	<section class="home-banner">
+	    <div class="logo">
+	    	<img src="/img/LD_logo_long.svg" alt="Laurendoes" />
+	    </div>
+	    <ul>
+			<li>
+				<a class="site-subtitle" href="{{ site.baseurl }}/">
+				<h1 class="home-heading">Graphic Design</h1></a>
+			</li>
+			<li>
+				<a class="site-subtitle" href="{{ site.baseurl }}/">
+				<h1 class="home-heading">Web Design</h1></a>
+			</li>
+			<li>
+				<a class="site-subtitle" href="{{ site.baseurl }}/">
+				<h1 class="home-heading">Blogging</h1></a>
+			</li>
+			<li>
+				<a class="site-subtitle" href="{{ site.baseurl }}/">
+				<h1 class="home-heading">Illustration</h1></a>
+			</li>
+	    </ul>
+	</section>
 
-<section class="home posts">
-  <h1>Blog Posts</h1>
-  {% for post in site.posts %}
-    <article><time>{{ post.date | date_to_string }}</time> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></article>
-  {% endfor %}
-</section>
+	<section class="home-work">
+		<div class="work-list">
+			<h2>Projects</h2>
+			<ul class="work-list js-packery" data-packery-options='{ "itemSelector": "li", "gutter": 0, "percentPosition": true }'>
+			  <div class="packery-layout-shim"></div>
+				{% for post in site.posts %}
+				<li class="{{post.image_type}} {{ post.type }}">
+					<div class="dummy"></div>
+					<div class="element"> 	        
+					    <a href="{{ post.url }}">
+					    	<img class="cover-image" src="{{ post.image_link }}" alt="{{post.title}}"/>
+					    	<div>
+					    		<span>
+					    			<img class="squiggle" src="/img/jagged-squiggle_pink.svg" />
+					    			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, nihil.</p>
+					    			<p>Vero soluta dolorem officiis assumenda! Natus quam doloribus voluptatibus suscipit voluptatum sed.</p>
+					    			<p class="type">{{ post.type }}</p>
+					    			<img class="dot" src="/img/LD_dot.svg" />
+					    		</span>
+					    	</div>
+					    </a>
+					</div>
+				</li>
+				{% endfor %}
+			    <li class="double-width">
+			    	<div class="dummy"></div>
+			    	<div class="element"> 	        
+					    <a href="">
+					    	<img class="cover-image" src="http://www.placecage.com/g/1323/654"/>
+					    	<div>
+					    		<span>
+					    			<img class="squiggle" src="/img/jagged-squiggle_pink.svg" />
+					    			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, nihil.</p>
+					    			<p>Vero soluta dolorem officiis assumenda! Natus quam doloribus voluptatibus suscipit voluptatum sed.</p>
+					    			<p class="type">madeup</p>
+					    			<img class="dot" src="/img/LD_dot.svg" />
+					    		</span>
+					    	</div>
+					    </a>
+					</div>
+				</li>
+				<li class="double-width double-height">
+					<div class="dummy"></div>
+			    	<div class="element"> 	        
+					    <a href="">
+					    	<img class="cover-image" src="http://www.placecage.com/g/1323/1323"/>
+					    	<div>
+					    		<span>
+					    			<img class="squiggle" src="/img/jagged-squiggle_pink.svg" />
+					    			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, nihil.</p>
+					    			<p>Vero soluta dolorem officiis assumenda! Natus quam doloribus voluptatibus suscipit voluptatum sed.</p>
+					    			<p class="type">madeup</p>
+					    			<img class="dot" src="/img/LD_dot.svg" />
+					    		</span>
+					    	</div>
+					    </a>
+					</div>
+				</li>
+				<li class="double-height">
+					<div class="dummy"></div>
+			    	<div class="element">
+						<a href="">
+	                        <img src="http://www.placecage.com/g/654/1323" alt="test" />
+	                        <div>
+					    		<span>
+					    			<img class="squiggle" src="/img/jagged-squiggle_pink.svg" />
+					    			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, nihil.</p>
+					    			<p>Vero soluta dolorem officiis assumenda! Natus quam doloribus voluptatibus suscipit voluptatum sed.</p>
+					    			<p class="type">madeup</p>
+					    			<img class="dot" src="/img/LD_dot.svg" />
+					    		</span>
+					    	</div>
+	                    </a>
+                    </div>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="home-clients">
+		<div class="client-list">
+			<h2>Clients</h2>
+			{% for num in (1..4) %}
+			<div class="client">
+				<img src="http://www.placecage.com/g/100/60" alt="test" />
+			</div>
+			{% endfor %}
+		</div>
+	</section>
+</div>

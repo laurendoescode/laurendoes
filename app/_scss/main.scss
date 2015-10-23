@@ -99,6 +99,14 @@ textarea {
 
 @import "susy/sass/_susy";
 
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
 $blue: #154899;
 $grey: #d0d0d0;
 $light-grey: #f5f5f5;
@@ -106,7 +114,7 @@ $light-grey: #f5f5f5;
 $susy: (
   columns: 12,
   gutters: 1/6,
-  gutter-position: split,
+  gutter-position: inside,
   debug: (
       image: show,
       output: overlay
@@ -128,17 +136,47 @@ h2 {
     text-transform: lowercase;
 }
 
+article {
+    float: left;
+    width: 100%;
+    margin-bottom: gutter() * 10;
+
+    h1, h2 ,p {
+        padding: 0 gutter();
+    }
+
+    img {
+        max-width: 100%;
+        margin-bottom: gutter() * 2;
+
+        &.one-up {
+            @include span(12 of 12);
+        }
+
+        &.two-up {
+            @include span(6 of 12);
+        }
+    }
+}
+
 .site-header {
+    @include span(12 of 12);
     background-color: $blue;
 }
 
 .site-footer {
-    background-color: white;
+    @include span(12 of 12);
+    background-color: $light-grey;
 
     .footer-nav {
         margin: 0;
         padding: 0;
-        display: none;
+        float: left;
+        width: auto;
+
+        img {
+            width: 124px;
+        }
     }
 
     .social-media-list {
@@ -148,7 +186,7 @@ h2 {
 
         li {
             list-style-type: none;
-            @include span(4 of 12);
+            @include span(2 of 10);
             text-align: center;
 
             a {
@@ -156,6 +194,12 @@ h2 {
                 width: 66px;
                 height: 66px;
                 border-radius: 33px;
+
+                img {
+                    @include vertical-align;
+                    width: 50%;
+                    height: 50%;
+                }
             }
 
             &:first-of-type a {
@@ -169,7 +213,7 @@ h2 {
                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e40d7d', endColorstr='#254e9d',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
             }
 
-            &:nth-of-type(2) a {
+            &:nth-of-type(2) a, &:nth-of-type(3) a, &:nth-of-type(4) a {
                 background: #e40d7d; /* Old browsers */
                 background: -moz-linear-gradient(-45deg, #e40d7d 33%, #254e9d 66%); /* FF3.6+ */
                 background: -webkit-gradient(linear, left top, right bottom, color-stop(33%,#e40d7d), color-stop(66%,#254e9d)); /* Chrome,Safari4+ */
@@ -192,12 +236,27 @@ h2 {
             }
         }
     }
+
+    .squiggle {
+        width: 4em;
+        margin: 0 auto;
+        padding-top: 2em;
+        display: block;
+        clear: both;
+    }
 }
 
 .home-banner {
     background-color: $blue;
     padding-top: gutter() * 6;
     padding-bottom: gutter() * 6;
+    text-align: center;
+
+    .logo {
+        width: 15em;
+        margin: 0 auto 2em auto;
+        display: inline-block;
+    }
 
     ul {
         margin: 0;
@@ -211,6 +270,7 @@ h2 {
 
         a {
             text-decoration: none;
+            display: inline-block;
         }
 
         h1 {
@@ -221,17 +281,31 @@ h2 {
     }
 }
 
-.home-work {
-    padding-bottom: gutter() * 2;
-}
-
-.packery-layout-shim {
-    width: gutter() * 2;
-}
-
 .work-list {
     margin: 0;
     padding: 0;
+
+    .type {
+        text-transform: uppercase;
+        font-size: 0.875rem;
+    }
+
+    .squiggle, .dot {
+        margin: 1em auto;
+    }
+
+    .squiggle {
+        width: 3em;
+    }
+
+    .dot {
+        width: 0.75em;
+        height: 1em;
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
 
     li {
         list-style-type: none;
@@ -239,6 +313,41 @@ h2 {
 
     img {
         max-width: 100%;
+    }
+
+    li {
+        float: left;
+        position: relative;
+    }
+    li a,
+    li a img {
+        display: block;
+        position: relative;
+    }
+    li a {
+        overflow: hidden;
+    }
+    li a div {
+        position: absolute;
+        background: #000;
+        background: rgba(0,0,0,0.8);
+        width: 100%;
+        height: 100%;
+        text-align: center;
+    }
+    li a div span {
+        @include vertical-align;
+        padding: 1rem;
+        display: block;
+        font-weight: normal;
+        color: rgba(255,255,255,0.9);
+    }
+    .double-width a div span {
+        max-width: 50%;
+        margin: 0 auto;
+    }
+    .double-height a div span {
+        max-height: 50%;
     }
 }
 
@@ -255,6 +364,13 @@ h2 {
             max-width: 100%;
         }
     }
+}
+
+.work-list, .client-list, .footer-content, .post-content, .header-content {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
 }
 
 /* ==========================================================================
@@ -360,12 +476,15 @@ h2 {
 
 @media only screen and (min-width: 35em) {
     .site-header {
-        @include span(12 of 12);
-        padding-top: gutter() * 2;
+        padding-top: 45px;
+        padding-bottom: 60px;
     }
     .site-title {
         display: inline-block;
         float: left;
+        img {
+            height: 32px;
+        }
     }
     .site-subtitle {
         text-align: center;
@@ -423,7 +542,7 @@ h2 {
                 display: inline-block;
                 width: 33.333%;
 
-                img {
+                .cover-image {
                     max-width: 100%;
                     max-height: 100%;
                     width: 100%;
@@ -503,25 +622,17 @@ h2 {
                 max-width: auto;
                 width: 100%;
             }
-
-            &:nth-of-type(5), &:nth-of-type(6) {
-                display: none;
-            }
         }
     }
 
     .site-footer {
-        @include span(12 of 12);
-        margin-top: gutter() * 6;
-        margin-bottom: gutter() * 10;
-        background-color: $light-grey;
+        padding-top: 80px;
+        padding-bottom: 100px;
 
         .social-media-list {
             padding: 0;
             float: right;
             width: auto;
-            margin-top: gutter() * 2;
-
             li {
                 list-style-type: none;
                 text-align: center;
