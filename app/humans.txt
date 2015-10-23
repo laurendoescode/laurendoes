@@ -1,0 +1,19 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Lauren Kelly
+
+# THANKS
+
+    Charles Bancroft
+
+# TECHNOLOGY COLOPHON
+
+    Jekyll static site generator
+    Sass
+    HTML5 ★ Boilerplate
+    Normalize.css
+    jQuery, Modernizr
+
