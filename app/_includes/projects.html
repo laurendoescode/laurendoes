@@ -1,0 +1,30 @@
+<section class="home-work">
+	<div class="work-list clearfix">
+		<div class="section-header">
+			<img src="/img/laurendoes_bracket.svg"/>
+			<h2>Projects</h2>
+		</div>
+		<ul class="work-list js-packery" data-packery-options='{ "itemSelector": "li", "gutter": 0, "percentPosition": true }'>
+		  <div class="packery-layout-shim"></div>
+			{% for post in site.posts %}
+			<li class="{{post.image_type}} {{ post.type }}">
+				<div class="dummy"></div>
+				<div class="element"> 	        
+				    <a href="{{ post.url }}">
+				    	<img class="cover-image" src="{{ post.image_link }}" alt="{{post.title}}"/>
+				    	<div>
+				    		<span>
+				    			<img class="squiggle" src="/img/jagged-squiggle_pink.svg" />
+				    			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, nihil.</p>
+				    			<p>Vero soluta dolorem officiis assumenda! Natus quam doloribus voluptatibus suscipit voluptatum sed.</p>
+				    			<p class="type">{{ post.type }}</p>
+				    			<img class="dot" src="/img/LD_dot.svg" />
+				    		</span>
+				    	</div>
+				    </a>
+				</div>
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
+</section>

@@ -174,8 +174,35 @@ article {
         float: left;
         width: auto;
 
+        ul {
+            padding: 0;
+            margin: 0.5rem 0 0 0;
+        }
+
+        ul li {
+            display: inline-block;
+            list-style-type: none;
+            font-size: 1.2rem;
+            a {
+                text-decoration: none;
+                color: #000;
+
+                &:hover, &:active {
+                    color: $blue;
+                }
+            }
+            &:after {
+                content: '/';
+                margin-left: 0.25rem;
+            }
+            &:last-of-type:after {
+                content: '';
+            }
+        }
+
         img {
             width: 124px;
+            vertical-align: top;
         }
     }
 
@@ -357,7 +384,7 @@ article {
     padding-bottom: gutter() * 2;
 
     .client {
-        @include span(4 of 12);
+        @include span(2 of 12);
         display: inline-block;
 
         img {
@@ -366,7 +393,7 @@ article {
     }
 }
 
-.work-list, .client-list, .footer-content, .post-content, .header-content {
+.work-list, .client-list, .footer-content, .project-content, .header-content {
     max-width: 1280px;
     margin-left: auto;
     margin-right: auto;
@@ -517,9 +544,23 @@ article {
         }
     }
     h2 {
-        position: relative;
-        z-index: 999;
         font-size: 3rem;
+    }
+
+    .section-header {
+        z-index: 999;
+        position: absolute;
+        top: -2rem;
+        h2 {
+            padding: 0;
+            margin-left: 0.25em;
+            line-height: 1;
+            display: inline-block;
+        }
+
+        img {
+            width: 2em;
+        }
     }
 
     .home-work {
@@ -527,15 +568,6 @@ article {
         margin-top: gutter() * 9;
         margin-bottom: gutter() * 16;
         position: relative;
-
-        h2 {
-            margin: 0;
-            padding: 0;
-            position: absolute;
-            top: calc(-0.7em + 0.333%);
-            left: 0;
-            line-height: 1;
-        }
 
         .work-list {
             li {
@@ -602,25 +634,19 @@ article {
     .home-clients {
         @include span(12 of 12);
         position: relative;
-        h2 {
-            margin: 0;
-            padding: 0;
-            position: absolute;
-            top: -0.7em;
-            left: 0;
-            line-height: 1;
+        
+        .client-list {
+            height: 300px;
         }
 
         .client {
-            @include span(3 of 12);
-            margin-top: gutter() * 9;
-            margin-bottom: gutter() * 9;
+            @include span(2 of 12);
+            @include vertical-align;
             display: inline-block;
             text-align: center;
 
             img {
-                max-width: auto;
-                width: 100%;
+                vertical-align: middle;
             }
         }
     }
