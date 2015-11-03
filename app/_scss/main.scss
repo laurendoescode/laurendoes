@@ -147,16 +147,22 @@ article {
 
     img {
         max-width: 100%;
-        margin-bottom: gutter() * 2;
 
         &.one-up {
             @include span(12 of 12);
+            margin-bottom: gutter() * 2;
         }
 
         &.two-up {
             @include span(6 of 12);
+            margin-bottom: gutter() * 2;
         }
     }
+}
+
+.imagesfold {
+    padding: 0 gutter()/6;
+    width: 100%;
 }
 
 .site-header {
