@@ -299,3 +299,28 @@
 
     $.fn.hoverdir.Constructor = Hoverdir;
 });
+
+/**
+* greensock animation
+*/
+var values = "100%;40% 60%;20 350;50% 50%;true;10%".split(";"),
+    currentIndex = 0;
+
+//set the initial value
+TweenLite.set("#path", {visibility:"visible"});
+TweenLite.set("#code", {visibility:"visible"});
+
+function next() {
+  
+  TweenLite.killTweensOf(next); //in case the user clicks, clear any delayed calls to this method. 
+  if (++currentIndex === values.length) {
+    currentIndex = 0;
+  }
+  if (values[currentIndex] === "true") {
+    TweenLite.set("#current", {text:(values[currentIndex]), ease:Linear.easeNone});
+  } else {
+    TweenLite.set("#current", {text:('"' + values[currentIndex] + '"'), ease:Linear.easeNone});
+  }
+  TweenLite.to("#path", 1, {drawSVG:values[currentIndex], ease:Power1.easeInOut});
+  
+}

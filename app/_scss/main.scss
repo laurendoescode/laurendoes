@@ -765,3 +765,24 @@ article {
         page-break-after: avoid;
     }
 }
+
+/*
+* svg homepage animations
+*/
+
+.svg #graphicdesign {
+    display: inline-block;
+    position: absolute;
+    top: 185px;
+    left: 0px;
+}
+
+.site-subtitle a {
+    display: none;
+}
+
+.site-subtitle:hover a {
+    display: inline-block;
+}
+
+
