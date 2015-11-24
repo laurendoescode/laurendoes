@@ -157,8 +157,32 @@ article {
             @include span(6 of 12);
             margin-bottom: gutter() * 2;
         }
+
+        &.three-up {
+            @include span(4 of 12);
+            margin-bottom: gutter() * 2;
+        }
     }
 }
+
+div {
+
+        &.one-up {
+            @include span(12 of 12);
+            margin-bottom: gutter() * 2;
+        }
+
+        &.two-up {
+            @include span(6 of 12);
+            margin-bottom: gutter() * 2;
+        }
+
+        &.three-up {
+            @include span(4 of 12);
+            margin-bottom: gutter() * 2;
+        }
+
+    }
 
 .honorimg {
     margin-top: -16%;
