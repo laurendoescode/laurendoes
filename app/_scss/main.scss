@@ -162,6 +162,11 @@ article {
             @include span(4 of 12);
             margin-bottom: gutter() * 2;
         }
+
+        &.doublethree-up {
+            @include span(8 of 12);
+            margin-bottom: gutter() * 2;
+        }
     }
 }
 
@@ -179,6 +184,10 @@ div {
 
         &.three-up {
             @include span(4 of 12);
+            margin-bottom: gutter() * 2;
+        }
+        &.doublethree-up {
+            @include span(8 of 12);
             margin-bottom: gutter() * 2;
         }
 
@@ -809,4 +818,19 @@ div {
     display: inline-block;
 }
 
+a:link {
+    text-decoration: none;
+    color: #32bcdf;
+    font-weight: 700;
+}
 
+a:hover{
+    text-decoration: none;
+    color: #e5087e;
+    font-weight: 700;
+}
+
+ul {
+    padding: 0 0.59524%;
+    list-style-type: none;
+}
