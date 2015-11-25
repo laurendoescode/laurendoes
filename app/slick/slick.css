@@ -121,7 +121,7 @@
 
 .slick-next.slick-arrow
 {
-    display: none;
+    display: none !important;
 }
 
 .slick-dots
@@ -133,6 +133,9 @@
     padding: 0;
     list-style: none;
     text-align: center;
+    position: relative;
+    top: -75px;
+    margin-bottom: -90px;
 }
 
 .slick-dots li {
