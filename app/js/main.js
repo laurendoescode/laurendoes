@@ -30,6 +30,6 @@ $('.site-subtitle').on('mouseout', function() {
 	$('svg').hide();
 });
 
-$('.collapse-trigger').on('click', function(ev) {
-	$(ev.target).siblings(".collapse").slideDown(400);
+$('.collapse-trigger').on('click', function() {
+	$('.collapse-trigger').siblings(".collapse").slideDown(400);
 });

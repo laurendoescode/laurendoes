@@ -6,6 +6,7 @@
  * Kroc Camen, and the H5BP dev community and team.
  */
 
+
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
@@ -338,6 +339,7 @@ div {
 
     li {
         list-style-type: none;
+        position: relative;
 
         a {
             text-decoration: none;
@@ -348,6 +350,13 @@ div {
             color: white;
             text-transform: lowercase;
             margin: 0;
+        }
+
+        svg {
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
     }
 }
@@ -455,6 +464,14 @@ div {
 .collapse-trigger {
     cursor: pointer;
     padding: 0 gutter();
+    margin: 1em 0;
+}
+
+.collapse-trigger img {
+    padding-left: 7px;
+    position: relative;
+    top: 5px;
+    width: 15px;
 }
 
 .collapse {
@@ -814,16 +831,6 @@ div {
     }
 }
 
-/*
-* svg homepage animations
-*/
-
-.svg #graphicdesign {
-    display: inline-block;
-    position: absolute;
-    top: 185px;
-    left: 0px;
-}
 
 .site-subtitle a {
     display: none;
@@ -836,16 +843,59 @@ div {
 a:link {
     text-decoration: none;
     color: #32bcdf;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 a:hover{
     text-decoration: none;
-    color: #e5087e;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 ul {
     padding: 0 0.59524%;
     list-style-type: none;
 }
+/*
+* read more animation
+*/
+
+.sliding-u-l-r-l {
+    display: inline-block;
+    position: relative;
+    padding-bottom: 3px;
+}
+.sliding-u-l-r-l:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 0;
+    transition: width 0s ease, background .5s ease;
+}
+.sliding-u-l-r-l:after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    width: 0;
+    background: #e4077e;
+    transition: width .5s ease;
+}
+.sliding-u-l-r-l:hover:before {
+    width: 100%;
+    background: #e4077e;
+    transition: width .5s ease;
+}
+.sliding-u-l-r-l:hover:after {
+    width: 100%;
+    background: transparent;
+    transition: all 0s ease;
+}
+
+/*
+* END read more animation 
+*/
