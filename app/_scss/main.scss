@@ -446,10 +446,19 @@ div {
 }
 
 .work-list, .client-list, .footer-content, .project-content, .header-content {
-    max-width: 1280px;
+    max-width: 1024px;
     margin-left: auto;
     margin-right: auto;
     position: relative;
+}
+
+.collapse-trigger {
+    cursor: pointer;
+    padding: 0 gutter();
+}
+
+.collapse {
+    display: none;
 }
 
 /* ==========================================================================
@@ -567,7 +576,9 @@ div {
     }
     .site-subtitle {
         text-align: center;
-        
+        position: relative;
+        z-index: 99999;
+
         h1 {
             font-size: 6rem;
         }
