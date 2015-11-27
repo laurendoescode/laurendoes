@@ -10,12 +10,7 @@ $(document).ready(function(){
 
     $('.work-list li .element').hoverdir();
 
-    $('.home-heading1, .home-heading2, .home-heading3').on('mouseover', function(ev) {
-        $(ev.target).siblings('svg').css('visibility', 'visible');
-        $(ev.target).siblings('svg').drawsvg({reverse: true}).drawsvg('animate');
-    });
-
-    $('.home-heading4').on('mouseover', function(ev) {
+    $('.home-heading1, .home-heading2, .home-heading3, .home-heading4').on('mouseover', function(ev) {
         $(ev.target).siblings('svg').css('visibility', 'visible');
         $(ev.target).siblings('svg').drawsvg({reverse: true}).drawsvg('animate');
     });
