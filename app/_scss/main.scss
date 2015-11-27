@@ -116,10 +116,10 @@ $susy: (
   columns: 12,
   gutters: 1/6,
   gutter-position: inside,
-  debug: (
-      image: show,
-      output: overlay
-    )
+  // debug: (
+  //     image: show,
+  //     output: overlay
+  //   )
 );
 
 $base-line-height: 1rem;
@@ -128,6 +128,10 @@ body {
     @include container;
     font-family: 'museo-sans', sans-serif;
     font-weight: 300;
+}
+
+h1, h2 {
+    color: #000;
 }
 
 h2 {
@@ -594,9 +598,24 @@ div {
         text-align: center;
         position: relative;
         z-index: 99999;
+        cursor: pointer;
+
+        &> div {
+            position: relative;
+        }
 
         h1 {
             font-size: 6rem;
+            padding: 0 1em;
+        }
+
+        svg {
+            position: absolute;
+            visibility: hidden;
+        }
+
+        &:focus {
+            outline: none;
         }
     }
     .menu-icon {
@@ -644,8 +663,8 @@ div {
 
     .home-work {
         @include span(12 of 12);
-        margin-top: gutter() * 9;
-        margin-bottom: gutter() * 16;
+        padding-top: gutter() * 9;
+        padding-bottom: gutter() * 16;
         position: relative;
 
         .work-list {
@@ -828,11 +847,6 @@ div {
     h3 {
         page-break-after: avoid;
     }
-}
-
-
-.svg-wrapper {
-    display: none;
 }
 
 .site-subtitle:hover a {
