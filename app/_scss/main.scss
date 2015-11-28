@@ -506,6 +506,8 @@ div {
     .content {
         @include vertical-align;
         top: 45%;
+        width: 100%;
+        margin: 0 auto;
     }
 
     .dot {
@@ -540,6 +542,7 @@ div {
             color: white;
             margin: 0;
             text-transform: lowercase;
+            font-size: inherit !important;
         }
 
         svg {
@@ -853,6 +856,16 @@ div {
         padding-top: 45px;
     }
     .home-banner {
+        .content {
+            @include vertical-align;
+            top: 45%;
+            width: 60%;
+        }
+
+        li {
+            line-height: 1.2;
+        }
+
         .logo {
             width: 15em;
         }
@@ -868,7 +881,6 @@ div {
         }
 
         h1 {
-            font-size: 6rem;
             padding: 0 0.5em;
         }
 

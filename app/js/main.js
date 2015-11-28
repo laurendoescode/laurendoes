@@ -61,4 +61,6 @@ $(document).ready(function(){
         }
         ev.preventDefault();
     });
+
+    $('.home-banner li').fitText();
 });
