@@ -1,11 +1,10 @@
-<section class="home-work">
-	<div class="work-list clearfix">
+<section class="home-work clearfix">
+	<div class="work-list">
 		<div class="section-header">
 			<img src="/img/laurendoes_bracket.svg"/>
 			<h2>Projects</h2>
 		</div>
 		<ul class="work-list js-packery" data-packery-options='{ "itemSelector": "li", "gutter": 0, "percentPosition": true }'>
-		  <div class="packery-layout-shim"></div>
 			{% for post in site.posts %}
 			<li class="{{post.image_type}} {{ post.type }}">
 				<div class="dummy"></div>

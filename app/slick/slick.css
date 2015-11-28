@@ -5,7 +5,7 @@
     clear: both;
     padding-left: 0.59524%;
     padding-right: 0.59524%;
-    margin-bottom: 64px !important;
+    margin-bottom: 1.19048%;
 
     display: block;
 
@@ -132,18 +132,15 @@
     display: none !important;
 }
 
-.slick-dots
-{
+.slick-dots {
     position: absolute;
-    bottom: -45px;
+    bottom: 0;
     display: block;
     width: 100%;  
     padding: 0;
     list-style: none;
     text-align: center;
-    position: relative;
-    top: -75px;
-    margin-bottom: -90px;
+    height: 1em;
 }
 
 .slick-dots li {
