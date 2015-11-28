@@ -145,9 +145,32 @@ article {
     float: left;
     margin-bottom: gutter() * 10;
     width: 100%;
+    padding-top: 2em;
 
-    h1, h2 ,p {
-        padding: 0 gutter();
+    h1, h2, h3 ,p {
+        padding: 0 0.59524%;
+        margin: 0;
+        line-height: 1.2;
+    }
+
+    p {
+        margin-bottom: 1em;
+    }
+
+    h3 {
+        font-weight:300;
+        font-size:1.5em;
+        margin-bottom: 1em;
+    }
+
+    h2 {
+        text-transform: none;
+        margin-bottom: 0.25em;
+    }
+
+    h1 {
+        font-weight: 700;
+        margin-bottom: 0.25em;
     }
 
     img {
@@ -216,11 +239,32 @@ div {
     color: #154899;
 }
 
+.wrapper-about {
+    padding-bottom: 5em;
+}
+
+.testimonials {
+    padding: 0;
+
+    em {
+        display: block;
+        margin-top: 0.25em;
+    }
+    img {
+        margin: 1em 0;
+    }
+}
+
 .site-header {
     @include span(12 of 12);
     background-color: $blue;
     padding-bottom: 1em;
     padding-top: 1em;
+}
+
+.site-nav {
+    position: relative;
+    z-index: 9999;
 }
 
 .site-title {
@@ -234,12 +278,14 @@ div {
 .section-header {
     position: absolute;
     top: -2rem;
+    padding-left: 0.3%;
     z-index: 999;
     h2 {
         display: inline-block;
         line-height: 1;
-        margin-left: 0.25em;
         padding: 0;
+        margin-left: 0.25rem;
+        font-size: 2.6rem;
     }
 
     img {
@@ -365,28 +411,10 @@ div {
 }
 
 .site-footer {
-    padding-bottom: 40px;
-    padding-top: 20px;
-
-    .social-media-list {
-        float: right;
-        padding: 0;
-        width: 50%;
-        li {
-            list-style-type: none;
-            padding: 0;
-            text-align: center;
-
-            a {
-                margin-left: 0.5em;
-            }
-        }
-    }
-}
-
-.site-footer {
     @include span(12 of 12);
     background-color: $light-grey;
+    padding-bottom: 40px;
+    padding-top: 20px;
 
     .footer-nav {
         float: left;
@@ -430,23 +458,28 @@ div {
         @include container;
         margin: 0;
         padding: 0;
+        float: right;
+        width: 60%;
+        margin-top: 32px;
 
         li {
             @include span(2 of 10);
             list-style-type: none;
+            padding: 0;
             text-align: center;
 
             a {
                 background-color: #154899;
-                border-radius: 14px;
+                border-radius: 18px;
                 display: inline-block;
-                height: 28px;
-                width: 28px;
+                height: 36px;
+                width: 36px;
+                margin-left: 8px;
 
                 img {
                     @include vertical-align;
                     height: 50%;
-                    top: 32%;
+                    top: 40%;
                     width: 50%;
                 }
             }
@@ -483,7 +516,7 @@ div {
     .logo {
         display: inline-block;
         margin: 0 auto 2em auto;
-        width: 8em;
+        width: 50%;
     }
 
     ul {
@@ -631,6 +664,7 @@ div {
 
 .collapse {
     display: none;
+    padding-bottom: 2em;
 }
 
 /* ==========================================================================
@@ -823,6 +857,14 @@ div {
     }
 
     article {
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
         img {
             &.one-up {
                 @include span(12 of 12);
@@ -943,6 +985,10 @@ div {
             height: 300px;
         }
 
+        .section-header {
+            margin-top: -3px;
+        }
+
         .client {
             @include span(2 of 12);
             display: inline-block;
@@ -962,6 +1008,7 @@ div {
 
         .social-media-list {
             width: auto;
+            margin-top: 0;
             li {
                 a {
                     border-radius: 33px;
