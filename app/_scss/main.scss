@@ -474,7 +474,10 @@ div {
                 display: inline-block;
                 height: 36px;
                 width: 36px;
-                margin-left: 8px;
+
+                svg {
+                    display: none;
+                }
 
                 img {
                     @include vertical-align;
@@ -497,8 +500,6 @@ div {
 
 .home-banner {
     background-color: $blue;
-    padding-bottom: gutter() * 6;
-    padding-top: gutter() * 6;
     text-align: center;
     height: 100vh;
 
@@ -641,6 +642,7 @@ div {
 
 .wrapper-about .section-header {
     top: 3rem;
+    padding-left: 0;
 }
 
 .about-img {
@@ -665,6 +667,17 @@ div {
 .collapse {
     display: none;
     padding-bottom: 2em;
+}
+
+.work-list li a .mobile-image {
+    display: none;
+}
+
+.mobile-only {
+    display: block;
+}
+.desktop-only {
+    display: none;
 }
 
 /* ==========================================================================
@@ -773,9 +786,26 @@ div {
         padding-left: 1em;
         padding-right: 1em;
     }
+
+    .work-list li a .mobile-image {
+        display: block;
+    }
+
+    .work-list li a .mobile-image ~ .cover-image {
+        display: none;
+    }
 }
 
 @media only screen and (min-width: 35em) {
+    .section-header {
+        top: -1.7rem;
+    }
+    .mobile-only {
+        display: none;
+    }
+    .desktop-only {
+        display: block;
+    }
     .wrapper-about a, .project-content a {
         display: inline-block;
         padding-bottom: 3px;
@@ -812,18 +842,17 @@ div {
         transition: all 0s ease;
         width: 100%;
     }
+    .about-images img {
+        padding-bottom: 1.6em;
+        display: inline-block;
+        float: left;
+        width: 50%;
+    }
     .site-header {
         padding-bottom: 30px;
         padding-top: 45px;
     }
     .home-banner {
-        height: auto;
-        .content {
-            top: 0;
-            -ms-transform: none;
-            -webkit-transform: none;
-            transform: none;
-        }
         .logo {
             width: 15em;
         }
@@ -1010,11 +1039,24 @@ div {
             width: auto;
             margin-top: 0;
             li {
+                padding-left: 0.5rem;
+                margin-left: 0;
+
                 a {
                     border-radius: 33px;
                     height: 66px;
-                    margin-left: 1em;
                     width: 66px;
+                    position: relative;
+
+                    svg {
+                        display: block;
+                        visibility: hidden;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                    }
 
                     img {
                         top: 50%;

@@ -62,6 +62,26 @@ $(document).ready(function(){
         $('.home-heading1, .home-heading2, .home-heading3, .home-heading4').on('mouseout', function(ev) {
             $(ev.target).siblings('svg').css('visibility', 'hidden');
         });
+
+        $('.social-media-list li a').on('mouseover', function(ev) {
+            $(ev.target).parent().find('svg').css('visibility', 'visible');
+            $(ev.target).parent().find('svg').drawsvg().drawsvg('animate');
+        });
+
+        $('.social-media-list li a').on('mouseout', function(ev) {
+            $(ev.target).parent().find('svg').css('visibility', 'hidden');
+        });
+
+        $('.work-list').packery({
+            itemSelector: 'li',
+            gutter: 0,
+            percentPosition: true
+        });
+    }
+
+    if (isMobile) {
+        $('.mobile-image').siblings('.cover-image').hide();
+        $('.mobile-image').show();
     }
 
     $('.collapse-trigger').on('click', function() {
