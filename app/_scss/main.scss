@@ -216,11 +216,32 @@ div {
     color: #154899;
 }
 
+.wrapper-about {
+    padding-bottom: 5em;
+}
+
+.testimonials {
+    padding: 0;
+
+    em {
+        display: block;
+        margin-top: 0.25em;
+    }
+    img {
+        margin: 1em 0;
+    }
+}
+
 .site-header {
     @include span(12 of 12);
     background-color: $blue;
     padding-bottom: 1em;
     padding-top: 1em;
+}
+
+.site-nav {
+    position: relative;
+    z-index: 9999;
 }
 
 .site-title {
@@ -234,6 +255,7 @@ div {
 .section-header {
     position: absolute;
     top: -2rem;
+    padding-left: 0.3%;
     z-index: 999;
     h2 {
         display: inline-block;
@@ -483,7 +505,7 @@ div {
     .logo {
         display: inline-block;
         margin: 0 auto 2em auto;
-        width: 8em;
+        width: 50%;
     }
 
     ul {
@@ -626,6 +648,7 @@ div {
 
 .collapse {
     display: none;
+    padding-bottom: 2em;
 }
 
 /* ==========================================================================
@@ -936,6 +959,10 @@ div {
         
         .client-list {
             height: 300px;
+        }
+
+        .section-header {
+            margin-top: -3px;
         }
 
         .client {

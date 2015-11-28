@@ -13,7 +13,13 @@
 				    	<img class="cover-image" src="{{ post.image_link }}" alt="{{post.title}}"/>
 				    	<div>
 				    		<span>
-				    			<img class="squiggle" src="/img/jagged-squiggle_pink.svg" />
+				    			{% if post.type contains "layout design" %}
+				    			    <img class="squiggle" src="/img/jagged-squiggle_pink.svg" />
+				    			{% elsif post.type contains "branding" %}
+				    			    <img class="squiggle" src="/img/smooth-squiggle_pink.svg" />
+				    			{% elsif post.type contains "illustration" %}
+				    			    <img class="squiggle" src="/img/jagged-squiggle_orange.svg" />
+				    			{% endif %}
 				    			<h4>{{ post.client }}<br>{{ post.title }}</h4>
 				    			<p>{{ post.description }}</p>
 				    			<p class="type">{{ post.type }}</p>
