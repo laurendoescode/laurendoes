@@ -406,6 +406,10 @@ div {
             max-width: 100%;
             vertical-align: middle;
         }
+
+        &:last-of-type img {
+            width: 80%;
+        }
         @include vertical-align;
     }
 }
@@ -610,6 +614,15 @@ div {
         position: absolute;
         text-align: center;
         width: 100%;
+        transition: top 800ms ease;
+
+        &.mobile-hide {
+            top: -100%;
+        }
+
+        &.mobile-show {
+            top: 0;
+        }
     }
     li a div span {
         @include vertical-align;
@@ -621,9 +634,6 @@ div {
     .double-width a div span {
         margin: 0 auto;
         max-width: 50%;
-    }
-    .double-height a div span {
-        max-height: 50%;
     }
 }
 
@@ -1003,6 +1013,9 @@ div {
                     .element {
                         bottom: - gutter() * 2;
                     }
+                    a div span {
+                        max-height: 50%;
+                    }
                 }
 
                 &.double-height.double-width {
@@ -1038,8 +1051,14 @@ div {
 
             img {
                 vertical-align: middle;
+                width: 80%;
+
             }
             @include vertical-align;
+
+            &:last-of-type img {
+                width: 60%;
+            }
         }
     }
 
