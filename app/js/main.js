@@ -1,3 +1,25 @@
+function detectIE() {
+    var ua = window.navigator.userAgent;
+    var msie = ua.indexOf('MSIE ');
+    if (msie > 0) {
+        // IE 10 or older => return version number
+        return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+    }
+    var trident = ua.indexOf('Trident/');
+    if (trident > 0) {
+        // IE 11 => return version number
+        var rv = ua.indexOf('rv:');
+        return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+    }
+    var edge = ua.indexOf('Edge/');
+    if (edge > 0) {
+       // IE 12 (aka Edge) => return version number
+       return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+    }
+    // other browser
+    return false;
+}
+
 $(document).ready(function(){
     var isMobile = window.matchMedia("only screen and (max-width: 768px)").matches;
 
@@ -12,6 +34,11 @@ $(document).ready(function(){
         speed: 0,
         dots: true
     });
+
+    if (detectIE()) {
+        $('.home-heading1, .home-heading2, .home-heading3, .home-heading4').siblings('svg').hide();
+        $('.social-media-list svg').hide();
+    }
 
     if (!isMobile) {
         $('.work-list li .element').hoverdir();
