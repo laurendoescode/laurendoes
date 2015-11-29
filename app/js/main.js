@@ -71,6 +71,24 @@ $(document).ready(function(){
     if (isMobile) {
         $('.mobile-image').siblings('.cover-image').hide();
         $('.mobile-image').show();
+
+        $(window).scroll( function(){
+                $('.work-list li').each( function(i){
+                    var top_of_window = $(window).scrollTop();
+                    var bottom_of_window = top_of_window + $(window).height();
+                    var top_of_object = $(this).offset().top;
+                    var bottom_of_object = top_of_object + $(this).outerHeight();
+                    var elem = $(this).find('.element a div');
+
+                    if( top_of_window > bottom_of_object || bottom_of_window < top_of_object ){
+                        elem.removeClass('mobile-show').addClass('mobile-hide');
+                    } else if( bottom_of_window > bottom_of_object && top_of_window < top_of_object ){
+                        elem.removeClass('mobile-hide').addClass('mobile-show');
+                    }
+                    
+                }); 
+            
+            });
     }
 
     $('.collapse-trigger').on('click', function() {
