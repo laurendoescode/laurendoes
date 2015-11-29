@@ -406,6 +406,10 @@ div {
             max-width: 100%;
             vertical-align: middle;
         }
+
+        &:last-of-type img {
+            width: 80%;
+        }
         @include vertical-align;
     }
 }
@@ -1038,8 +1042,14 @@ div {
 
             img {
                 vertical-align: middle;
+                width: 80%;
+
             }
             @include vertical-align;
+
+            &:last-of-type img {
+                width: 60%;
+            }
         }
     }
 
