@@ -10,9 +10,9 @@ description: Lauren's Website
 
 author:
   name: Lauren Kelly
-  email: hi@laurendo.es
-  github: ciban
-  twitter: 
+  email: hello@laurendo.es
+  github: laurendoes
+  twitter: laurendoestweet
 
 # Exclude directories and/or files from the conversion.
 # Grunt moves image files and asset directories.
