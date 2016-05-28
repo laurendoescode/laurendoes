@@ -6,32 +6,46 @@
 		</div>
 		<ul class="work-list">
 			{% for post in site.posts %}
-			<li class="{{post.image_type}} {{ post.type }}">
-				<div class="dummy"></div>
-				<div class="element"> 	        
-				    <a href="{{ post.url }}">
-		    	    	{% if post.mobile_image_link %}
-		    		    	<img class="mobile-image" src="{{ post.mobile_image_link }}" alt="{{post.title}}"/>
-		    	    	{% endif %}
-				    	<img class="cover-image" src="{{ post.image_link }}" alt="{{post.title}}"/>
-				    	<div>
-				    		<span>
-				    			{% if post.type contains "illustration" %}
-				    			    <img class="squiggle" src="/img/jagged-squiggle_pink.svg" />
-				    			{% elsif post.type contains "design" %}
-				    			    <img class="squiggle" src="/img/smooth-squiggle_pink.svg" />
-				    			{% elsif post.type contains "branding" %}
-				    			    <img class="squiggle" src="/img/smooth-squiggle_pink.svg" />
-				    			{% endif %}
-				    			<h4>{{ post.client }}<br>{{ post.title }}</h4>
-				    			<p>{{ post.description }}</p>
-				    			<p class="type">{{ post.type }}</p>
-				    			<img class="dot" src="/img/LD_dot.svg" />
-				    		</span>
-				    	</div>
-				    </a>
-				</div>
-			</li>
+				{% if post.type contains "writing" %}
+					<li class="{{ post.type }}">
+						<div class="dummy"></div>
+						<div class="element">
+								<div>
+									<a target="_blank" href="{{ post.external_url }}">
+										<h4>{{ post.title }}</h4>
+										<p>{{ post.description }}</p>
+									</a>
+								</div>
+						</div>
+					</li>
+				{% else %}
+					<li class="{{post.image_type}} {{ post.type }}">
+						<div class="dummy"></div>
+						<div class="element">
+						    <a href="{{ post.url }}">
+				    	    	{% if post.mobile_image_link %}
+				    		    	<img class="mobile-image" src="{{ post.mobile_image_link }}" alt="{{post.title}}"/>
+				    	    	{% endif %}
+						    	<img class="cover-image" src="{{ post.image_link }}" alt="{{post.title}}"/>
+						    	<div>
+						    		<span>
+						    			{% if post.type contains "illustration" %}
+						    			    <img class="squiggle" src="/img/jagged-squiggle_pink.svg" />
+						    			{% elsif post.type contains "design" %}
+						    			    <img class="squiggle" src="/img/smooth-squiggle_pink.svg" />
+						    			{% elsif post.type contains "branding" %}
+						    			    <img class="squiggle" src="/img/smooth-squiggle_pink.svg" />
+						    			{% endif %}
+						    			<h4>{{ post.client }}<br>{{ post.title }}</h4>
+						    			<p>{{ post.description }}</p>
+						    			<p class="type">{{ post.type }}</p>
+						    			<img class="dot" src="/img/LD_dot.svg" />
+						    		</span>
+						    	</div>
+						    </a>
+						</div>
+					</li>
+				{% endif %}
 			{% endfor %}
 		</ul>
 	</div>
