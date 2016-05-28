@@ -108,4 +108,10 @@ $(document).ready(function(){
     });
 
     $('.home-banner li').fitText();
+
+    window.setInterval(function() {
+        var titles = ['Lauren is designing', 'Lauren is writing', 'Lauren is illustrating'];
+        var currentIndex = titles.indexOf(document.title);
+        document.title = currentIndex >= 0 && currentIndex < titles.length - 1 ? titles[currentIndex + 1] : titles[0];
+    }, 4000);
 });

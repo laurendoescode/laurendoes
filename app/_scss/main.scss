@@ -20,8 +20,8 @@ textarea {
 }
 
 html {
-    font-size: 1em;
-    line-height: 1.4;
+    font-size: 1.05em;
+    line-height: 1.65;
 }
 
 /*
@@ -108,7 +108,7 @@ textarea {
   transform: translateY(-50%);
 }
 
-$blue: #154899;
+$blue: #242c5d;
 $grey: #d0d0d0;
 $light-grey: #f5f5f5;
 
@@ -155,12 +155,14 @@ article {
 
     p {
         margin-bottom: 1em;
+        color: #272726;
+        
     }
 
     h3 {
-        font-weight:300;
-        font-size:1.5em;
-        margin-bottom: 1em;
+        font-weight: 100;
+        font-size: 1.6em;
+        margin-bottom: -10px;
     }
 
     h2 {
@@ -202,20 +204,24 @@ div {
     &.one-up {
         @include span(12 of 12);
         margin-bottom: gutter() * 2;
+        padding-bottom: 3%;
     }
 
     &.two-up {
         @include span(12 of 12);
         margin-bottom: gutter() * 2;
+        padding-bottom: 3%;
     }
 
     &.three-up {
         @include span(12 of 12);
         margin-bottom: gutter() * 2;
+        padding-bottom: 3%;
     }
     &.doublethree-up {
         @include span(12 of 12);
         margin-bottom: gutter() * 2;
+        padding-bottom: 3%;
     }
 }
 
@@ -234,7 +240,7 @@ div {
     top: 2px;
 }
 
-.wrapper-about a, .project-content a {
+.wrapper-about a, .project-content a, .writing-content a {
     text-decoration: none;
     color: #154899;
 }
@@ -257,7 +263,6 @@ div {
 
 .site-header {
     @include span(12 of 12);
-    background-color: $blue;
     padding-bottom: 1em;
     padding-top: 1em;
 }
@@ -266,6 +271,7 @@ div {
     position: relative;
     z-index: 9999;
 }
+
 
 .site-title {
     display: inline-block;
@@ -291,6 +297,10 @@ div {
     img {
         width: 2em;
     }
+}
+
+.page-link-about {
+    color: #001;
 }
 
 .nav-links {
@@ -362,6 +372,8 @@ div {
       background-image: linear-gradient(to bottom, #f49e12 0%, #f49e12 50%), linear-gradient(to top, #e4047d 0%, #e4047d 100%);
     }
 }
+
+
 
 .home-work {
     @include span(12 of 12);
@@ -476,8 +488,8 @@ div {
                 background-color: #154899;
                 border-radius: 18px;
                 display: inline-block;
-                height: 36px;
-                width: 36px;
+                height: 32px;
+                width: 32px;
 
                 svg {
                     display: none;
@@ -503,7 +515,14 @@ div {
 }
 
 .home-banner {
-    background-color: $blue;
+background: rgba(36,44,93,1);
+background: -moz-radial-gradient(center, ellipse cover, rgba(36,44,93,1) 16%, rgba(36,44,93,1) 22%, rgba(35,29,79,1) 72%);
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(16%, rgba(36,44,93,1)), color-stop(22%, rgba(36,44,93,1)), color-stop(72%, rgba(35,29,79,1)));
+background: -webkit-radial-gradient(center, ellipse cover, rgba(36,44,93,1) 16%, rgba(36,44,93,1) 22%, rgba(35,29,79,1) 72%);
+background: -o-radial-gradient(center, ellipse cover, rgba(36,44,93,1) 16%, rgba(36,44,93,1) 22%, rgba(35,29,79,1) 72%);
+background: -ms-radial-gradient(center, ellipse cover, rgba(36,44,93,1) 16%, rgba(36,44,93,1) 22%, rgba(35,29,79,1) 72%);
+background: radial-gradient(ellipse at center, rgba(36,44,93,1) 16%, rgba(36,44,93,1) 22%, rgba(35,29,79,1) 72%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#242c5d', endColorstr='#231d4f', GradientType=1 );
     text-align: center;
     height: 100vh;
 
@@ -520,10 +539,11 @@ div {
         width: 0.75em;
     }
 
-    .logo {
+    .banner-h1 {
         display: inline-block;
         margin: 0 auto 2em auto;
-        width: 50%;
+        font-size: 2em;
+        color: #fff;
     }
 
     ul {
@@ -540,6 +560,7 @@ div {
         a {
             display: inline-block;
             text-decoration: none;
+            padding-bottom: 2%;
         }
 
         h1 {
@@ -664,6 +685,32 @@ div {
     padding-right: 0;
 }
 
+.section-about-image {
+    height:60em;
+    margin: 0 auto;
+    position: relative;
+    padding: 0.9em 0;
+    z-index: 1;
+    background-image: url('/img/placeholder.png');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+.section-about-image {
+    h1 {
+        color: #fff;
+        font-size: 3em;
+        width: 44%;
+    }
+    h2 {
+        color:#fff;
+        font-size:1em;
+        font-weight: 300;
+    }
+}
+
+
+
 .collapse-trigger {
     cursor: pointer;
     margin: 1em 0;
@@ -692,6 +739,11 @@ div {
 .desktop-only {
     display: none;
 }
+
+.writing {
+    background-color: &blue;
+}
+
 
 /* ==========================================================================
    Helper classes
@@ -795,7 +847,7 @@ div {
 }
 
 @media only screen and (max-width: 65em) {
-    .site-header, .site-footer, .wrapper-about, .project-content {
+    .site-header, .site-footer, .wrapper-about, .project-content, .writing-content {
         padding-left: 1em;
         padding-right: 1em;
     }
@@ -819,7 +871,7 @@ div {
     .desktop-only {
         display: block;
     }
-    .wrapper-about a, .project-content a {
+    .wrapper-about a, .project-content a, .writing-content a {
         display: inline-block;
         padding-bottom: 3px;
         position: relative;
@@ -861,6 +913,18 @@ div {
         float: left;
         width: 50%;
     }
+
+    .about-blurb {
+    padding-top: 290px;
+}
+
+    /* ==========================================================================
+   Banner
+   ========================================================================== */
+
+
+
+
     .site-header {
         padding-bottom: 30px;
         padding-top: 45px;
@@ -873,7 +937,7 @@ div {
         }
 
         li {
-            line-height: 1.4;
+            line-height: 1.65;
         }
 
         .logo {
@@ -902,6 +966,25 @@ div {
             outline: none;
         }
     }
+
+
+    /* ==========================================================================
+   Banner animation
+   ========================================================================== */
+
+
+
+.banner-designing-right {
+    float:right;
+    background: url(/img/womenofearth.png) 0 0 no-repeat;
+}
+
+.banner-designing-left {
+    float:left;
+}
+
+
+/* Banner animation End*/
 
     h2 {
         font-size: 3rem;
@@ -1075,8 +1158,8 @@ div {
 
                 a {
                     border-radius: 33px;
-                    height: 66px;
-                    width: 66px;
+                    height: 44px;
+                    width: 44px;
                     position: relative;
 
                     svg {
@@ -1196,7 +1279,7 @@ a:hover {
 
 ul {
     list-style-type: none;
-    padding: 0 0.59524%;
+    padding: 0;
 }
 /*
 * read more animation
