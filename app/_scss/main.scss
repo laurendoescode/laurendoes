@@ -238,7 +238,7 @@ div {
     }
     p {
         padding-right: 1.5em;
-        padding-top: 1rem;
+        padding-top: 0.1rem;
     }
 }
 
@@ -249,6 +249,9 @@ div {
     margin-bottom: 0;
 }
 
+.project-intro {
+    padding-top: 2em;
+}
 
 .wrapper-about a,
 .project-content a,
