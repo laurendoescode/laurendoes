@@ -272,6 +272,28 @@ div {
     padding-bottom: 0.8em;
 }
 
+
+.testimonial {
+    margin-top: 5%;
+    margin-bottom: 10px;
+    text-align: center;
+    padding-left: 3%;
+    padding-right: 3%;
+} 
+
+.testimonial p:first-of-type{
+    line-height: 1.6em;
+}
+
+.testimonial span {
+    font-size: 2.7em;
+    font-family: Georgia;
+    position: relative;
+    top: 12px;
+    opacity: 0.2;
+
+}
+
 .writing-wrapper {
     @include vertical-align;
     position: absolute;
@@ -280,7 +302,7 @@ div {
     h3 {
         color: #fff;
         font-weight: 300;
-        font-size: 1.3em;
+        font-size: 1.2em;
         margin: 0;
     }
     h4 {
