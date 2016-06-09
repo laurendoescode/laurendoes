@@ -3,17 +3,16 @@
 
 # TEAM
 
-    Lauren Kelly -- Site Maker
+    Lauren Kelly
 
 # THANKS
 
-    <name>
+    Charles Bancroft
 
 # TECHNOLOGY COLOPHON
 
     Jekyll static site generator
-    Sass 
-    HTML5 ★ Boilerplate 
-    Normalize.css 
-    jQuery, Modernizr 
-
+    Sass
+    HTML5 ★ Boilerplate
+    Normalize.css
+    jQuery, Modernizr
