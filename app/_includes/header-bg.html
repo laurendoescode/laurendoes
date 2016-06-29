@@ -1,10 +1,12 @@
-<header class="site-header">
+<header class="site-header header-bg">
   <div class="header-content clearfix">
     <a class="site-title" href="/" title="Home" hreflang="en">
-      <img src="/img/LK_logo_inverted.svg" title="{{ site.title }}" alt="{{ site.title }}" />
+      <img src="/img/LK_logo.svg" title="{{ site.title }}" alt="{{ site.title }}" />
     </a>
+    
     <nav class="site-nav">
       <a href="#" class="menu-icon" hreflang="en"></a>
+
       <div class="nav-links">
         {% for page in site.pages %}
           {% if page.title %}
