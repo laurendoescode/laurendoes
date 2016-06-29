@@ -52,6 +52,17 @@ $(document).ready(function(){
             $(ev.target).siblings('svg').css('visibility', 'hidden');
         });
 
+        $(".home-heading3").hover(hoverVideo, hideVideo);
+
+        function hoverVideo(e) {  
+            $('video').show().get(0).play();
+        }
+
+        function hideVideo(e) {
+            $('video').hide().get(0).pause();
+            $('video').get(0).currentTime = 0;
+        }
+
         $('.social-media-list li a').on('mouseover', function(ev) {
             $(ev.target).parent().find('svg').css('visibility', 'visible');
             $(ev.target).parent().find('svg').drawsvg().drawsvg('animate');
@@ -115,20 +126,3 @@ $(document).ready(function(){
         document.title = currentIndex >= 0 && currentIndex < titles.length - 1 ? titles[currentIndex + 1] : titles[0];
     }, 4000);
 });
-
-
-        var figure = $(".home-heading3");
-        var vid = $("video");
-
-        [].forEach.call(figure, function (item) {
-                item.addEventListener('mouseover', hoverVideo, false);
-                item.addEventListener('mouseout', hideVideo, false);
-        });
-        
-        function hoverVideo(e) {  
-                $(this).find('.thevideo')[0].play();
-        }
-
-        function hideVideo(e) {
-                $(this).find('.thevideo')[0].pause(); 
-        }

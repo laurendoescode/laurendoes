@@ -68,6 +68,11 @@ video {
     vertical-align: middle;
 }
 
+/* Hide Play button + controls on iOS */
+video::-webkit-media-controls {
+    display:none !important;
+}
+
 
 /*
  * Remove default fieldset styles.
@@ -267,6 +272,11 @@ div {
     color: #154899;
 }
 
+.project-content h1 {
+    font-size: 2rem;
+    line-height: 1.2em;
+}
+
 .project-content h2 {
     font-size: 1.1rem;
     font-weight: 300;
@@ -411,9 +421,9 @@ div {
         background-image: linear-gradient(to right, #e4047d 0%, #e4047d 100%), linear-gradient(to left, #f49e12 0%, #f49e12 100%);
         background-position: 0 0, 0 100%;
         background-repeat: no-repeat;
-        background-size: 100% 2px;
-        -webkit-background-size: 100% 2px;
-        -moz-background-size: 100% 2px;
+        background-size: 100% 3px;
+        -webkit-background-size: 100% 3px;
+        -moz-background-size: 100% 3px;
     }
     a:after {
         background-image: -webkit-linear-gradient(top, #e4047d 0%, #e4047d 50%), -webkit-linear-gradient(to top, #f49e12 0%, #f49e12 100%);
@@ -422,11 +432,11 @@ div {
         background-image: linear-gradient(to bottom, #e4047d 0%, #e4047d 50%), linear-gradient(to top, #f49e12 0%, #f49e12 100%);
         background-position: 0 0, 100% 0;
         background-repeat: no-repeat;
-        background-size: 2px 100%;
+        background-size: 3px 100%;
         left: 0;
         position: absolute;
-        -webkit-background-size: 2px 100%;
-        -moz-background-size: 2px 100%;
+        -webkit-background-size: 3px 100%;
+        -moz-background-size: 3px 100%;
     }
     a:hover:before {
         background-image: -webkit-linear-gradient(to right, #f49e12 0%, #f49e12 100%), -webkit-linear-gradient(right, #e4047d 0%, #e4047d 100%);
@@ -445,71 +455,25 @@ div {
     }
 }
 
-.home-work {
-    @include span(12 of 12);
-    padding-bottom: 5em;
-    padding-top: 5em;
-    position: relative;
-    .work-list {
-        li {
-            display: inline-block;
-            width: 100%;
-            .cover-image {
-                box-sizing: content-box;
-                height: 100%;
-                max-height: 100%;
-                max-width: 100%;
-                width: 100%;
-            }
-        }
-    }
-}
-
-.home-clients {
-    @include span(12 of 12);
-    @include container;
-    background-color: $grey;
-    padding-bottom: gutter() * 2;
-    position: relative;
-    .client-list {
-        height: 120px;
-    }
-    .client {
-        @include span(4 of 12);
-        display: inline-block;
-        text-align: center;
-        padding: 1em;
-        img {
-            max-width: 100%;
-            vertical-align: middle;
-        }
-        &:last-of-type img {
-            width: 80%;
-        }
-        @include vertical-align;
-    }
-}
-
 /*
 Start bg video
 */
 
 .video-container {
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     overflow: hidden;
-    z-index: -90;
+    z-index: 1;
 }
 
-.video-container__video {
+.video-container video {
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
+    bottom: 0;
+    left: 0;
 }
 
 
@@ -608,9 +572,11 @@ End bg video
     height: 100vh;
     z-index: -100;
     .content {
-        @include vertical-align;
+        position: absolute;
+        transform: translateY(-50%) translateX(-50%);
         top: 45%;
-        width: 100%;
+        left: 50%;
+        width: 50%;
         margin: 0 auto;
     }
     .dot {
@@ -993,83 +959,6 @@ End bg video
     *zoom: 1;
 }
 
-@media only screen and (max-width: 65em) {
-    .site-header,
-    .site-footer,
-    .wrapper-about,
-    .project-content,
-    .writing-content {
-        padding-left: 1em;
-        padding-right: 1em;
-    }
-    .work-list li a .mobile-image {
-        display: block;
-    }
-    .work-list li a .mobile-image ~ .cover-image {
-        display: none;
-    }
-}
-
-@media only screen and (min-width: 35em) {
-    .section-header {
-        top: -1.7rem;
-    }
-    .mobile-only {
-        display: none;
-    }
-    .desktop-only {
-        display: block;
-    }
-    .wrapper-about a,
-    .project-content a,
-    .writing-content a {
-        display: inline-block;
-        padding-bottom: 3px;
-        position: relative;
-    }
-    .wrapper-about a:before,
-    .project-content a:before {
-        bottom: 0;
-        content: '';
-        display: block;
-        height: 3px;
-        left: 0;
-        position: absolute;
-        transition: width 0s ease, background .5s ease;
-        width: 0;
-    }
-    .wrapper-about a:after,
-    .project-content a:after {
-        background: #e4077e;
-        bottom: 0;
-        content: '';
-        display: block;
-        height: 3px;
-        position: absolute;
-        right: 0;
-        transition: width .5s ease;
-        width: 0;
-    }
-    .wrapper-about a:hover:before,
-    .project-content a:hover:before {
-        background: #e4077e;
-        transition: width .5s ease;
-        width: 100%;
-    }
-    .wrapper-about a:hover:after,
-    .project-content a:hover:after {
-        background: transparent;
-        transition: all 0s ease;
-        width: 100%;
-    }
-    .about-images img {
-        padding-bottom: 1.6em;
-        display: inline-block;
-        float: left;
-        width: 50%;
-    }
-}
-
 
 /* ==========================================================================
    Banner
@@ -1078,15 +967,13 @@ End bg video
 .site-header {
     padding-bottom: 30px;
     padding-top: 45px;
-    border-bottom: 2px solid $blue;
+}
+
+.header-bg {
+    background-color: $blue;
 }
 
 .home-banner {
-    .content {
-        @include vertical-align;
-        top: 45%;
-        width: 60%;
-    }
     li {
         line-height: 1.65;
     }
@@ -1291,10 +1178,143 @@ div {
                     height: 100%;
                 }
                 img {
-                    top: 50%;
+                    top: 40%;
                 }
             }
         }
+    }
+}
+
+@media only screen and (max-width: 65em) {
+    .site-header,
+    .site-footer,
+    .wrapper-about,
+    .project-content,
+    .writing-content {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+    .work-list li a .mobile-image {
+        display: block;
+    }
+    .work-list li a .mobile-image ~ .cover-image {
+        display: none;
+    }
+    .three-up, .doublethree-up, .two-up {
+        width: 100% !important;
+    }
+    .section-about-image {
+        display: none;
+    }
+    .home-work {
+        @include span(12 of 12);
+        padding-bottom: 5em;
+        padding-top: 5em;
+        position: relative;
+        .work-list {
+            li {
+                display: block;
+                width: 100% !important;
+                .cover-image {
+                    box-sizing: content-box;
+                    height: 100%;
+                    max-height: 100%;
+                    max-width: 100%;
+                    width: 100%;
+                }
+                .dummy {
+                    padding-top: 100% !important;
+                }
+                .element {
+                    padding: gutter();
+                }
+            }
+        }
+    }
+
+    .home-clients {
+        @include span(12 of 12);
+        @include container;
+        background-color: $grey;
+        padding-bottom: gutter() * 2;
+        position: relative;
+        .client-list {
+            height: 120px;
+        }
+        .client {
+            @include span(4 of 12);
+            display: inline-block;
+            text-align: center;
+            padding: 1em;
+            img {
+                max-width: 100%;
+                vertical-align: middle;
+            }
+            &:last-of-type img {
+                width: 80%;
+            }
+            @include vertical-align;
+        }
+    }
+}
+
+@media only screen and (min-width: 35em) {
+    .section-header {
+        top: -1.7rem;
+    }
+    .mobile-only {
+        display: none;
+    }
+    .desktop-only {
+        display: block;
+    }
+    .wrapper-about a,
+    .project-content a,
+    .writing-content a {
+        display: inline-block;
+        padding-bottom: 3px;
+        position: relative;
+    }
+    .wrapper-about a:before,
+    .project-content a:before {
+        bottom: 0;
+        content: '';
+        display: block;
+        height: 3px;
+        left: 0;
+        position: absolute;
+        transition: width 0s ease, background .5s ease;
+        width: 0;
+    }
+    .wrapper-about a:after,
+    .project-content a:after {
+        background: #e4077e;
+        bottom: 0;
+        content: '';
+        display: block;
+        height: 3px;
+        position: absolute;
+        right: 0;
+        transition: width .5s ease;
+        width: 0;
+    }
+    .wrapper-about a:hover:before,
+    .project-content a:hover:before {
+        background: #e4077e;
+        transition: width .5s ease;
+        width: 100%;
+    }
+    .wrapper-about a:hover:after,
+    .project-content a:hover:after {
+        background: transparent;
+        transition: all 0s ease;
+        width: 100%;
+    }
+    .about-images img {
+        padding-bottom: 1.6em;
+        display: inline-block;
+        float: left;
+        width: 50%;
     }
 }
 
