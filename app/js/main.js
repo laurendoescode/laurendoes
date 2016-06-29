@@ -115,3 +115,20 @@ $(document).ready(function(){
         document.title = currentIndex >= 0 && currentIndex < titles.length - 1 ? titles[currentIndex + 1] : titles[0];
     }, 4000);
 });
+
+
+        var figure = $(".home-heading3");
+        var vid = $("video");
+
+        [].forEach.call(figure, function (item) {
+                item.addEventListener('mouseover', hoverVideo, false);
+                item.addEventListener('mouseout', hideVideo, false);
+        });
+        
+        function hoverVideo(e) {  
+                $(this).find('.thevideo')[0].play();
+        }
+
+        function hideVideo(e) {
+                $(this).find('.thevideo')[0].pause(); 
+        }
