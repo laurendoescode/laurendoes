@@ -968,12 +968,15 @@ End bg video
 .site-header {
     padding-bottom: 30px;
     padding-top: 45px;
-    position: absolute;   
-    z-index: 999; 
 }
 
 .header-bg {
     background-color: $blue;
+}
+
+.header-home {
+    position: absolute;
+    z-index: 999;
 }
 
 .home-banner {
