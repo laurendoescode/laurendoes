@@ -745,12 +745,12 @@ End bg video
 
 .wrapper-about {
     h1 {
-        color: #fff;
+        color: #001;
         font-size: 3em;
         width: 44%;
     }
     h2 {
-        color: #fff;
+        color: #001;
         font-size: 1em;
         font-weight: 300;
     }
@@ -979,6 +979,7 @@ End bg video
     }
     .logo {
         width: 15em;
+        z-index: 100;
     }
 }
 
@@ -1161,7 +1162,7 @@ div {
         width: auto;
         margin-top: 0;
         li {
-            padding-left: 0.5rem;
+            padding-left: 1.1rem;
             margin-left: 0;
             a {
                 border-radius: 33px;
