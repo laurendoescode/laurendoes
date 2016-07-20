@@ -560,6 +560,7 @@ End bg video
     }
 }
 
+
 .home-banner {
     background: rgba(36, 44, 93, 1);
     background: -moz-radial-gradient(center, ellipse cover, rgba(36, 44, 93, 1) 16%, rgba(36, 44, 93, 1) 22%, rgba(35, 29, 79, 1) 72%);
@@ -588,7 +589,7 @@ End bg video
     .banner-h1 {
         display: inline-block;
         margin: 0 auto 2em auto;
-        font-size: 2em;
+        font-size: 1.8em;
         color: #fff;
     }
     ul {
@@ -674,6 +675,13 @@ End bg video
         &.mobile-show {
             top: 0;
         }
+    }
+    .mobile-show p {
+        display: none;
+    }
+    .mobile-show h4 {
+        font-size: 1.3em;
+        font-weight: 300;
     }
     li a div span {
         @include vertical-align;
@@ -1191,6 +1199,9 @@ div {
 }
 
 @media only screen and (max-width: 65em) {
+    .video-container video {
+        display: none;
+    }
     .site-header,
     .site-footer,
     .wrapper-about,
@@ -1210,6 +1221,9 @@ div {
     }
     .section-about-image {
         display: none;
+    }
+    .home-banner .content {
+        width: 80%;
     }
     .home-work {
         @include span(12 of 12);
@@ -1236,7 +1250,6 @@ div {
             }
         }
     }
-
     .home-clients {
         @include span(12 of 12);
         @include container;
@@ -1320,6 +1333,13 @@ div {
         display: inline-block;
         float: left;
         width: 50%;
+    }
+    .wrapper-about h1 {
+        font-size: 2em;
+        width: 100%;
+    }
+    .home-banner .banner-h1 {
+        font-size: 1.2em;
     }
 }
 
